@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>eladmin</artifactId>
+        <groupId>org.csh</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>eladmin-common</artifactId>
+    <name>common module</name>
+    <properties>
+        <hutool.version>5.4.5</hutool.version>
+    </properties>
+
+    <dependencies>
+        <!--工具包,一个Java基础工具类，对文件、流、
+        加密解密、转码、正则、线程、XML等JDK方法进行封装，组成各种Util工具类-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
