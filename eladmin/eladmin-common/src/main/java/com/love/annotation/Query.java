@@ -17,7 +17,7 @@ import java.lang.annotation.Target;
 public @interface Query {
 
     //基本对象的属性名
-    String propNam() default "";
+    String propName() default "";
 
     //查询方式
     Type type() default Type.EQUAL;
