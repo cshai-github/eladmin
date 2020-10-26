@@ -6,7 +6,15 @@
 
     <groupId>org.csh</groupId>
     <artifactId>eladmin</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>eladmin-common</module>
+        <module>eladmin-system</module>
+        <module>eladmin-tool</module>
+    </modules>
+
+    <name>EL-ADMIN backstage management</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
