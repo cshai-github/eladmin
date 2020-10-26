@@ -22,6 +22,11 @@
             <artifactId>eladmin-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.csh</groupId>
+            <artifactId>eladmin-logging</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <!-- Spring boot websocket -->
         <dependency>

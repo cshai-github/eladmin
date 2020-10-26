@@ -162,7 +162,7 @@ public class RedisUtil {
      * @param keys 可以传一个或多个key
      * @return void
      */
-    public void delete(String... keys) {
+    public void del(String... keys) {
         if (keys != null && keys.length > 0) {
             if (keys.length == 1) {
                 boolean result = redisTemplate.delete(keys[0]);

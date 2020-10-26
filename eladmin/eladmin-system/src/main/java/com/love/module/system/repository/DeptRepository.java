@@ -16,6 +16,8 @@ import java.util.Set;
  * @createDate 2020/10/23
  * @version 1.0.0
  */
+//Spring Data JPA支持JPA2.0的Criteria查询，相应的接口是JpaSpecificationExecutor,这个接口基本是围绕着Specification接口来定义的。
+//Criteria 查询：是一种类型安全和更面向对象的查询
 public interface DeptRepository extends JpaRepository<Dept, Long>, JpaSpecificationExecutor<Dept> {
 
     /**
