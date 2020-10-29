@@ -37,5 +37,5 @@ public interface BaseMapper<D, E> {
      * @param entityList /
      * @return java.util.List<D>
      */
-    List<D> toDtp(List<E> entityList);
+    List<D> toDto(List<E> entityList);
 }
