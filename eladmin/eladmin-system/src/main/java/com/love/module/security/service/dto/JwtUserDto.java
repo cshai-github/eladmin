@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  */
 @Getter
 @AllArgsConstructor
-public class JwtUserDto implements UserDetails {
+public class    JwtUserDto implements UserDetails {
 
     private final UserDto user;
 

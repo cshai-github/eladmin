@@ -76,7 +76,8 @@ public class DeptServiceImpl implements DeptService {
             }
 
         }
-        List<DeptDto> list = deptMapper.toDtp(
+
+        List<DeptDto> list = deptMapper.toDto(
                 deptRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder), sort));
 
         //如果为空，就代表为自定义权限或者本级权限，就需要去重，不理解可以注释掉，看查询结果
@@ -175,7 +176,7 @@ public class DeptServiceImpl implements DeptService {
     public List<DeptDto> getSuperior(DeptDto deptDto, List<Dept> depts) {
         if (deptDto.getPid() == null) {
             depts.addAll(deptRepository.findByPidIsNull());
-            return deptMapper.toDtp(depts);
+            return deptMapper.toDto(depts);
         }
         depts.addAll(deptRepository.findByPid(deptDto.getPid()));
         return getSuperior(findById(deptDto.getPid()), depts);
@@ -184,7 +185,7 @@ public class DeptServiceImpl implements DeptService {
     @Override
     public Object buildTree(List<DeptDto> deptDtos) {
         Set<DeptDto> trees = new LinkedHashSet<>();
-        Set<DeptDto> depts= new LinkedHashSet<>();
+        Set<DeptDto> depts = new LinkedHashSet<>();
         List<String> deptNames = deptDtos.stream().map(DeptDto::getName).collect(Collectors.toList());
         boolean isChild;
         for (DeptDto deptDTO : deptDtos) {
@@ -201,9 +202,9 @@ public class DeptServiceImpl implements DeptService {
                     deptDTO.getChildren().add(it);
                 }
             }
-            if(isChild) {
+            if (isChild) {
                 depts.add(deptDTO);
-            } else if(deptDTO.getPid() != null &&  !deptNames.contains(findById(deptDTO.getPid()).getName())) {
+            } else if (deptDTO.getPid() != null && !deptNames.contains(findById(deptDTO.getPid()).getName())) {
                 depts.add(deptDTO);
             }
         }
@@ -211,9 +212,9 @@ public class DeptServiceImpl implements DeptService {
         if (CollectionUtil.isEmpty(trees)) {
             trees = depts;
         }
-        Map<String,Object> map = new HashMap<>(2);
-        map.put("totalElements",deptDtos.size());
-        map.put("content",CollectionUtil.isEmpty(trees)? deptDtos :trees);
+        Map<String, Object> map = new HashMap<>(2);
+        map.put("totalElements", deptDtos.size());
+        map.put("content", CollectionUtil.isEmpty(trees) ? deptDtos : trees);
         return map;
     }
 
@@ -236,10 +237,10 @@ public class DeptServiceImpl implements DeptService {
     @Override
     public void verification(Set<DeptDto> deptDtos) {
         Set<Long> deptIds = deptDtos.stream().map(DeptDto::getId).collect(Collectors.toSet());
-        if(userRepository.countByDepts(deptIds) > 0){
+        if (userRepository.countByDepts(deptIds) > 0) {
             throw new BadRequestException("所选部门存在用户关联，请解除后再试！");
         }
-        if(roleRepository.countByDepts(deptIds) > 0){
+        if (roleRepository.countByDepts(deptIds) > 0) {
             throw new BadRequestException("所选部门存在角色关联，请解除后再试！");
         }
     }

@@ -10,10 +10,10 @@ import java.util.List;
 
 /**
  * @ClassName EmailVo
- * @description 发送邮件时，接收参数的类
- * @author ocean
- * @createDate 2020/10/23
- * @version 1.0.0
+ * @Description 发送邮件时，接收参数的类
+ * @Author ocean
+ * @CreateDate 2021/3/1
+ * @Version 1.0.0
  */
 @Data
 @AllArgsConstructor

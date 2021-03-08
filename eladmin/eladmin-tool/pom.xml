@@ -19,6 +19,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.csh</groupId>
+            <artifactId>eladmin-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!--邮件依赖-->
         <dependency>
             <groupId>javax.mail</groupId>

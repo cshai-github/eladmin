@@ -12,6 +12,7 @@
         <module>eladmin-common</module>
         <module>eladmin-system</module>
         <module>eladmin-tool</module>
+        <module>eladmin-logging</module>
     </modules>
 
     <name>EL-ADMIN backstage management</name>
