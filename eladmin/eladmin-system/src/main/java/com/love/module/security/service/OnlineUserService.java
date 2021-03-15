@@ -152,7 +152,7 @@ public class OnlineUserService {
             if(onlineUserDto.getUserName().equals(userName)){
                 try {
                     String token =EncryptUtils.desDecrypt(onlineUserDto.getKey());
-                    if(StringUtils.isNotBlank(igoreToken)&&!igoreToken.equals(token)){
+                    if(StringUtils.isNotBlank(igoreToken) && !igoreToken.equals(token)){
                         this.kickOut(token);
                     }else if(StringUtils.isBlank(igoreToken)){
                         this.kickOut(token);
